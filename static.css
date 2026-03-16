@@ -1,0 +1,286 @@
+/* --- Variables de Color (Paleta Pastel y Modo Oscuro) --- */
+:root {
+    /* Paleta Pastel - Modo Luz */
+    --bg-color: #fcf6f5; /* Crema muy claro */
+    --text-color: #333333; /* Gris oscuro para lectura */
+    --primary-color: #f7e0da; /* Melocotón muy suave */
+    --accent-color: #a0a0ff; /* Lavanda para acentos/enlaces */
+    --card-bg-color: #ffffff; /* Fondo de tarjetas */
+    --btn-color: #a0a0ff;
+    --btn-text-color: #ffffff;
+    --btn-hover-color: #8a8ae0;
+    
+    --header-bg-color: #fff;
+    --nav-text-color: #555;
+    
+    --header-border: #eee;
+    --card-border: #eee;
+
+    /* Tiempos de transición */
+    --transition-speed: 0.3s;
+}
+
+/* --- Paleta Modo Oscuro (se activa con la clase .dark-mode) --- */
+body.dark-mode {
+    --bg-color: #1a1a2e; /* Azul marino muy oscuro */
+    --text-color: #f5f5f5; /* Blanco sucio para lectura */
+    --primary-color: #2a2a4e; /* Azul marino medio */
+    --accent-color: #c0c0ff; /* Lavanda más claro */
+    --card-bg-color: #2a2a4e; /* Fondo de tarjetas en oscuro */
+    --btn-color: #c0c0ff;
+    --btn-text-color: #1a1a2e;
+    --btn-hover-color: #a0a0ff;
+    
+    --header-bg-color: #1a1a2e;
+    --nav-text-color: #f5f5f5;
+    
+    --header-border: #333;
+    --card-border: #333;
+}
+
+/* --- Estilos Globales --- */
+body {
+    font-family: 'Montserrat', sans-serif; /* Usando una fuente moderna y profesional */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', serif; /* Una fuente diferente para títulos */
+    color: var(--text-color);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--btn-hover-color);
+}
+
+/* --- Encabezado --- */
+header {
+    background-color: var(--header-bg-color);
+    border-bottom: 1px solid var(--header-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    margin: 0;
+    font-size: 24px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--nav-text-color);
+    font-weight: 500;
+}
+
+.dark-mode-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--nav-text-color);
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+
+/* --- Sección Sobre Mí (Split Layout) --- */
+.about-section {
+    padding: 80px 0;
+}
+
+.split-layout {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-photo {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform var(--transition-speed);
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+}
+
+.about-text-content {
+    flex: 2;
+}
+
+/* --- Sección Proyectos --- */
+.projects-section {
+    padding: 60px 0;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.project-thumbnail-wrapper {
+    overflow: hidden;
+    aspect-ratio: 16 / 9; /* Mantén una relación de aspecto consistente */
+}
+
+.project-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-speed);
+}
+
+.project-card:hover .project-thumbnail {
+    transform: scale(1.1);
+}
+
+.project-details {
+    padding: 20px;
+}
+
+.project-links {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+/* --- Sección Contacto --- */
+.contact-section {
+    background-color: var(--primary-color);
+    padding: 60px 0;
+    transition: background-color var(--transition-speed);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    font-size: 20px;
+}
+
+/* --- Botones --- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--btn-color);
+    color: var(--btn-text-color);
+    border-radius: 6px;
+    font-weight: 500;
+    border: 2px solid var(--btn-color);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.btn:hover {
+    background-color: var(--btn-hover-color);
+    color: var(--btn-text-color);
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    color: var(--btn-text-color);
+    background-color: var(--btn-color);
+}
+
+.btn-sm:hover {
+    background-color: var(--btn-hover-color);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--btn-text-color);
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* --- Pie de Página --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    background-color: var(--header-bg-color);
+    border-top: 1px solid var(--header-border);
+}
+
+/* --- Media Queries (Adaptabilidad) --- */
+@media (max-width: 768px) {
+    .split-layout {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+    }
+    .about-text-content {
+        flex: 1;
+    }
+}
