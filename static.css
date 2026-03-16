@@ -284,3 +284,30 @@ footer {
         flex: 1;
     }
 }
+/* --- Estilos para la tarjeta con ícono --- */
+.project-icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color); /* Fondo pastel */
+    color: var(--accent-color); /* Color del icono */
+    padding: 30px;
+    height: 180px; /* Ajustá según necesites */
+    transition: background-color var(--transition-speed);
+}
+
+.kucacho-sites-card:hover .project-icon-wrapper {
+    background-color: var(--card-bg-color); /* Cambio suave al hover */
+}
+
+.project-icon {
+    font-size: 60px; /* Tamaño del icono */
+    margin-bottom: 15px;
+}
+
+.project-initials {
+    font-size: 20px;
+    font-family: 'Poppins', serif;
+    font-weight: 600;
+}
