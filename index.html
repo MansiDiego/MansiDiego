@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio Profesional</title>
+    <title>Diego Mansilla | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="static.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
 </head>
-<body>
-
-    <header>
+<body class="dark-mode"> <header>
         <div class="container header-content">
-            <h1 class="logo">Diego Mateo Mansilla</h1>
+            <h1 class="logo">DM<span>.</span></h1>
             <nav>
                 <a href="#about">Sobre Mí</a>
                 <a href="#projects">Proyectos</a>
                 <a href="#contact">Contacto</a>
-                <button id="dark-mode-toggle" class="dark-mode-icon" aria-label="Cambiar modo de luz/oscuridad">
+                <button id="dark-mode-toggle" class="dark-mode-icon">
                     <span class="material-symbols-outlined">light_mode</span>
                 </button>
             </nav>
@@ -26,87 +25,50 @@
 
     <section id="about" class="about-section">
         <div class="container split-layout">
-            <div class="about-image-wrapper">
-                <img src="img/lin.jpeg" alt="Tu Nombre" class="profile-photo">
-            </div>
             <div class="about-text-content">
-                <h2>Desarrollador Web Full Stack, y Estudiante de Ciencias Computacionales.</h2>
-                <p>Bienvenido/a a mi portafolio profesional. Soy Diego, un apasionado de la tecnología con experiencia en Mysql y PostgresSql. Mi objetivo es crear soluciones digitales que sean no solo funcionales, sino también estéticamente agradables y fáciles de usar.</p>
-                <p>Aquí encontrarás una selección de los proyectos en los que he trabajado. Pueden contactarme para mas información.</p>
-                <a href="TuCV.pdf" class="btn" download>Descargar Mi CV</a>
+                <span class="badge">Estudiante de Cs. de la Computación (UBA)</span>
+                <h2>Desarrollador Full Stack <br>& Futuro Científico.</h2>
+                <p>Soy Diego, apasionado por resolver problemas complejos con código. Especialista en SQL y entusiasta del bajo nivel.</p>
+                <div class="about-btns">
+                    <a href="TuCV.pdf" class="btn" download>Descargar CV</a>
+                    <a href="#contact" class="btn btn-secondary">Contactar</a>
+                </div>
+            </div>
+            <div class="about-image-wrapper">
+                <div class="glow-effect"></div>
+                <img src="img/lin.jpeg" alt="Diego Mansilla" class="profile-photo">
             </div>
         </div>
     </section>
 
     <section id="projects" class="projects-section">
         <div class="container">
-            <h2>Proyectos Realizados</h2>
-            <div class="projects-grid">
-                
-                <div class="project-card kucacho-sites-card"> <div class="project-thumbnail-wrapper project-icon-wrapper">
-                        <i class="fa-solid fa-file-invoice project-icon"></i>
-                        <span class="project-initials">K-Sites</span>
+            <h2 class="section-title">Proyectos Seleccionados</h2>
+            
+            <div class="projects-list">
+                <div class="project-row">
+                    <div class="project-image">
+                        <div class="project-icon-wrapper">
+                            <i class="fa-solid fa-file-invoice"></i>
+                        </div>
                     </div>
-                    <div class="project-details">
+                    <div class="project-info">
                         <h3>Kucacho Sites</h3>
-                        <p>Sistema de Gestion de Contenido, a través de plantillas simples e intuitivas de usar.</p>
+                        <p>CMS intuitivo diseñado para la gestión rápida de contenidos mediante plantillas dinámicas. Optimizado para performance y escalabilidad.</p>
+                        <div class="project-tech">
+                            <span>PostgreSQL</span>
+                            <span>Node.js</span>
+                        </div>
                         <div class="project-links">
-                            <a href="https://www.youtube.com/proyectouno" target="_blank" class="btn-sm">Ver Proyecto</a>
-                            <a href="https://github.com/MansiDiego/Kucacho-Sites" target="_blank" class="btn-sm btn-secondary">Código Fuente</a>
+                            <a href="#" class="link-glow">Ver Proyecto</a>
+                            <a href="https://github.com/MansiDiego/Kucacho-Sites" class="link-glow">GitHub</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-thumbnail-wrapper">
-                        <img src="img/placeholder-project.jpg" alt="Miniatura de Proyecto 2" class="project-thumbnail">
-                    </div>
-                    <div class="project-details">
-                        <h3>en proceso</h3>
-                        <p>...</p>
-                        <div class="project-links">
-                            <a href="#" class="btn-sm disabled">Ver Proyecto</a>
-                            <a href="#" class="btn-sm btn-secondary disabled">Código Fuente</a>
-                        </div>
-                    </div>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-thumbnail-wrapper">
-                        <img src="img/placeholder-project.jpg" alt="Miniatura de Proyecto 3" class="project-thumbnail">
-                    </div>
-                    <div class="project-details">
-                        <h3>en proceso</h3>
-                        <p>...</p>
-                        <div class="project-links">
-                            <a href="#" class="btn-sm disabled">Ver Proyecto</a>
-                            <a href="#" class="btn-sm btn-secondary disabled">Código Fuente</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
         </div>
     </section>
-
-    <section id="contact" class="contact-section">
-        <div class="container text-center">
-            <h2>Hablemos</h2>
-            <p>¿Te interesa mi trabajo o tienes un proyecto en mente? ¡Contáctame!</p>
-            <div class="social-links">
-                <a href="mailto:mansilladiegomateo@gmail.com" class="social-icon">Email</a>
-                <a href="https://www.linkedin.com/in/mansilla-diego/" target="_blank" class="social-icon">LinkedIn</a>
-                <a href="https://github.com/MansiDiego" target="_blank" class="social-icon">GitHub</a>
-                <a href="https://twitter.com/kendrick" target="_blank" class="social-icon">Twitter </a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Mansilla Diego. Todos los derechos reservados.</p>
-        </div>
-    </footer>
 
     <script src="codigo.js"></script>
 </body>

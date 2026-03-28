@@ -1,39 +1,33 @@
-// --- Lógica del Modo Oscuro ---
+// --- Lógica de Estilo: Ekko Mode (Cyberpunk) vs ProjectMaria (Minimalist) ---
 
-// 1. Obtener referencias a elementos clave
+// 1. Referencias a elementos
 const darkModeToggle = document.getElementById('dark-mode-toggle');
 const body = document.body;
 const iconSpan = darkModeToggle.querySelector('.material-symbols-outlined');
 
-// 2. Comprobar si hay un tema guardado en localStorage al cargar la página
-const currentTheme = localStorage.getItem('theme');
-if (currentTheme) {
-    body.classList.add(currentTheme);
-    updateIcon(currentTheme === 'dark-mode');
-}
+// 2. Inicialización: Arrancamos en dark-mode (Ekko) por defecto si no hay nada guardado
+const currentTheme = localStorage.getItem('theme') || 'dark-mode';
+body.classList.add(currentTheme);
+updateIcon(currentTheme === 'dark-mode');
 
-// 3. Escuchar el evento de clic en el botón de cambio
+// 3. Evento de click para cambiar el tema
 darkModeToggle.addEventListener('click', () => {
-    // Alternar la clase .dark-mode en el cuerpo
+    // Alternamos la clase
     body.classList.toggle('dark-mode');
     
-    // Comprobar qué modo está activo actualmente
+    // Verificamos el estado actual para guardar y actualizar icono
     const isDarkMode = body.classList.contains('dark-mode');
     
-    // Actualizar el icono y guardar la preferencia
+    // Guardamos la preferencia
+    localStorage.setItem('theme', isDarkMode ? 'dark-mode' : 'light-mode');
+    
+    // Cambiamos el icono
     updateIcon(isDarkMode);
-    if (isDarkMode) {
-        localStorage.setItem('theme', 'dark-mode');
-    } else {
-        localStorage.removeItem('theme'); // Volver al tema predeterminado
-    }
 });
 
-// 4. Función auxiliar para actualizar el icono
+// 4. Función única para actualizar el icono
 function updateIcon(isDarkMode) {
-    if (isDarkMode) {
-        iconSpan.textContent = 'dark_mode'; // Icono de luna
-    } else {
-        iconSpan.textContent = 'light_mode'; // Icono de sol
-    }
+    // Si estoy en oscuro, el icono debe ser el de "sol" para cambiar a claro
+    // Si estoy en claro, el icono debe ser el de "luna" para cambiar a oscuro
+    iconSpan.textContent = isDarkMode ? 'light_mode' : 'dark_mode';
 }
