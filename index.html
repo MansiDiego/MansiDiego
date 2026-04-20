@@ -9,12 +9,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
 </head>
-<body class="dark-mode"> <header>
+<body class="dark-mode"> 
+    <header>
         <div class="container header-content">
             <h1 class="logo">Diego Mateo Mansilla<span>.</span></h1>
                 <nav>
                     <a href="#about" class="nav-btn">Sobre Mí</a>
                     <a href="#projects" class="nav-btn">Proyectos</a>
+                    <a href="#certificaciones" class="nav-btn">Certificaciones</a>
                     <a href="#contact" class="nav-btn">Contacto</a>
                     <button id="dark-mode-toggle" class="dark-mode-icon">
                         <span class="material-symbols-outlined">light_mode</span>
@@ -107,15 +109,15 @@
                 <div class="carousel-track-container">
                     <ul class="carousel-track">
                         <li class="carousel-slide">
-                            <img src="img/certificado.jpeg" alt="Certificado Automatización">
+                            <img src="img/certificado.jpeg" alt="Certificado Automatización" class="expandable-cert">
                             <p class="cert-title">Electronica y Automatización</p> 
                         </li>
                         <li class="carousel-slide">
-                            <img src="img/certificado2.jpeg" alt="Certificado Mern">
+                            <img src="img/certificado2.jpeg" alt="Certificado Mern" class="expandable-cert">
                             <p class="cert-title">Stack de pogramación M.E.R.N</p>
                         </li>
                         <li class="carousel-slide">
-                            <img src="img/certificado3.jpeg" alt="Certificado SQL">
+                            <img src="img/certificado3.jpeg" alt="Certificado SQL" class="expandable-cert">
                             <p class="cert-title">Procesamiento de Datos (SQL)</p>
                         </li>
                     </ul>
@@ -125,6 +127,11 @@
             </div>
         </div>
     </section>
+
+    <div id="cert-modal" class="cert-modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modal-image">
+    </div>
 
 <footer id="contact" class="main-footer">
     <div class="container footer-content">
