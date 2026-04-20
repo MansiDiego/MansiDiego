@@ -216,3 +216,86 @@ nav { display: flex; align-items: center; gap: 15px; }
     margin: 0; /* Reseteamos el margen que traen los <p> por defecto */
     opacity: 0.9;
 }
+
+/*Linea 120....
+/*Certificaciones sección*/
+/* --- Carrusel de Certificaciones --- */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-track-container {
+    overflow: hidden; /* Fundamental: oculta los certificados fuera de la vista */
+    width: 100%;
+    border-radius: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.carousel-track {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    transition: transform 0.4s ease-in-out; /* Suaviza el movimiento lateral */
+}
+
+.carousel-slide {
+    min-width: 100%; /* Cada slide ocupa todo el contenedor visible */
+    box-sizing: border-box;
+    padding: 30px;
+    text-align: center;
+}
+
+.carousel-slide img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.cert-title {
+    font-family: var(--font-code);
+    color: var(--accent-primary);
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* Botones de navegación integrados con el estilo con el cual estamos laburando :-} */
+.carousel-btn {
+    background: var(--bg-main);
+    color: var(--accent-primary);
+    border: 2px solid var(--accent-primary);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.carousel-btn:hover {
+    background: var(--accent-primary);
+    color: var(--bg-main);
+    box-shadow: 0 0 15px var(--accent-primary);
+}
+
+#prev-btn { left: -60px; }
+#next-btn { right: -60px; }
+
+@media (max-width: 900px) {
+    #prev-btn { left: 10px; }
+    #next-btn { right: 10px; }
+    .carousel-slide { padding: 40px 15px 15px 15px; } /* Evita que los botones tapen la imagen en mobile */
+}
