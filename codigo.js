@@ -31,3 +31,16 @@ function updateIcon(isDarkMode) {
     // Si estoy en claro, el icono debe ser el de "luna" para cambiar a oscuro
     iconSpan.textContent = isDarkMode ? 'light_mode' : 'dark_mode';
 }
+
+// --- Cálculo dinámico de edad ---
+const birthDate = new Date(2004, 3, 20); // 20 de abril de 2004 (mes 0-indexed)
+const today = new Date();
+let age = today.getFullYear() - birthDate.getFullYear();
+const monthDiff = today.getMonth() - birthDate.getMonth();
+if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+}
+const ageElement = document.getElementById('age');
+if (ageElement) {
+    ageElement.textContent = age;
+}
