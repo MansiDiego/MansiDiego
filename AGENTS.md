@@ -26,6 +26,22 @@ no tests, no linter. Open `index.html` directly in a browser to preview.
   in `index.html`; it is overwritten at runtime by `getElementById('age')`.
 - Dark-mode preference is persisted in `localStorage` under key `theme`.
 
+## Development practices
+When refactoring or adding code, follow the existing style: keep syntax clean and
+consistent, and add descriptive comments in the same tone already used in
+`codigo.js` (concise Spanish comments that explain "why"/intent, not "what").
+Favor readability over cleverness; match surrounding patterns rather than
+introducing new frameworks or abstractions.
+
+## Stack
+- Frontend: vanilla HTML5, CSS3, ES6+ JavaScript (no frameworks, no bundlers).
+- Styling: `static.css` with CSS custom properties for light/dark (cyberpunk vs
+  minimal) themes.
+- Scripts: `codigo.js` — dark-mode, dynamic age, carousel + modal logic.
+- Icons & fonts (via CDN): Font Awesome 6, Google Fonts (Poppins, JetBrains Mono),
+  Material Symbols. No `node_modules` or package installation required.
+- Hosting: deployed as a static site on Netlify; source on GitHub.
+
 ## File ownership
 - `index.html` — markup; sections: about, projects, certifications (carousel + modal), contact.
 - `static.css` — all styling; CSS variables drive light/dark (cyberpunk vs minimal) themes.
