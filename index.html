@@ -12,10 +12,11 @@
 <body class="dark-mode"> 
     <header>
         <div class="container header-content">
-            <h1 class="logo">Diego Mateo Mansilla<span>.</span></h1>
+            <h1 class="logo">Proyectos de <span class="mate-word">mate</span><span class="mate-icon" aria-hidden="true">🧉</span></h1>
                 <nav>
                     <a href="#about" class="nav-btn">Sobre Mí</a>
                     <a href="#projects" class="nav-btn">Proyectos</a>
+                    <a href="#fotos" class="nav-btn">Fotos</a>
                     <a href="#certificaciones" class="nav-btn">Certificaciones</a>
                     <a href="#contact" class="nav-btn">Contacto</a>
                     <button id="dark-mode-toggle" class="dark-mode-icon">
@@ -30,7 +31,7 @@
             <div class="about-text-content">
                 <span class="badge">Estudiante de Cs. de la Computación (UBA)</span>
                 <h2>Desarrollador Full Stack <br>& Científico en proceso.</h2>
-                
+
                 <div class="system-panel">
                     <div class="system-title">System Mansilla Diego:</div>
                     <div class="system-data">
@@ -50,9 +51,9 @@
                             <span class="data-val">Desarrollarme académicamente y profesionalmente.</span>
                         </div>
                     </div>
-                    
+
                     <hr class="system-hr">
-                    
+
                     <p class="system-bio">Hola, soy Diego. Me interesa la ciencia y la tecnología porque las veo como herramientas para mejorar la calidad de vida de las personas.</p>
                 </div>
                 <div class="about-btns">
@@ -70,7 +71,7 @@
     <section id="projects" class="projects-section">
         <div class="container">
             <h2 class="section-title">Portafolio</h2>
-            
+
             <div class="projects-list">
                 <div class="project-row">
                     <div class="project-image">
@@ -98,19 +99,53 @@
         </div>
     </section>
 
+    <!-- Sección de Fotos: reemplazar los placeholders con <img> cuando subas las fotos -->
+    <section id="fotos" class="fotos-section">
+        <div class="container">
+            <h2 class="section-title">Fotos</h2>
+            <p class="section-subtitle">Snaps de made.</p>
+
+            <div class="carousel-container">
+                <button id="prev-btn-fotos" class="carousel-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                <div class="carousel-track-container">
+                    <ul id="fotos-track" class="carousel-track">
+                        <li class="carousel-slide">
+                            <div class="photo-placeholder">
+                                <i class="fa-solid fa-mug-hot"></i>
+                                <span>Foto 1 — próximamente</span>
+                            </div>
+                        </li>
+                        <li class="carousel-slide">
+                            <div class="photo-placeholder">
+                                <i class="fa-solid fa-mug-hot"></i>
+                                <span>Foto 2 — próximamente</span>
+                            </div>
+                        </li>
+                        <li class="carousel-slide">
+                            <div class="photo-placeholder">
+                                <i class="fa-solid fa-mug-hot"></i>
+                                <span>Foto 3 — próximamente</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <button id="next-btn-fotos" class="carousel-btn"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
 
     <section id="certificaciones" class="projects-section">
         <div class="container">
             <h2 class="section-title">Certificaciones</h2>
-            
+
             <div class="carousel-container">
                 <button id="prev-btn" class="carousel-btn"><i class="fa-solid fa-chevron-left"></i></button>
-                
+
                 <div class="carousel-track-container">
                     <ul class="carousel-track">
                         <li class="carousel-slide">
                             <img src="img/CertificaciónYPF.jpeg" alt="Certificado Automatización" class="expandable-cert">
-                            <p class="cert-title">Electronica y Automatización</p> 
+                            <p class="cert-title">Electronica y Automatización</p>
                         </li>
                         <li class="carousel-slide">
                             <img src="img/certificadoMern.jpeg" alt="Certificado Mern" class="expandable-cert">
@@ -122,7 +157,7 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <button id="next-btn" class="carousel-btn"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
         </div>

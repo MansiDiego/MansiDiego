@@ -1,39 +1,64 @@
-// 1. Referencias a elementos
+// --- Referencias a elementos del header ---
 const darkModeToggle = document.getElementById('dark-mode-toggle');
 const body = document.body;
 const iconSpan = darkModeToggle.querySelector('.material-symbols-outlined');
 
-// 2. Inicialización: Arrancamos en dark-mode por defecto si no hay nada guardado
+// --- Inicialización: Arrancamos en dark-mode (observatorio) por defecto si no hay preferencia guardada ---
 const currentTheme = localStorage.getItem('theme') || 'dark-mode';
 body.classList.add(currentTheme);
 updateIcon(currentTheme === 'dark-mode');
 
-// 3. Evento de click para cambiar el tema
+// --- Evento de click para cambiar el tema ---
 darkModeToggle.addEventListener('click', () => {
-    // Alternamos la clase
     body.classList.toggle('dark-mode');
-    
-    // Verificamos el estado actual para guardar y actualizar icono
+
     const isDarkMode = body.classList.contains('dark-mode');
-    
-    // Guardamos la preferencia
     localStorage.setItem('theme', isDarkMode ? 'dark-mode' : 'light-mode');
-    
-    // Cambiamos el icono
     updateIcon(isDarkMode);
 });
 
-// 4. Función única para actualizar el icono
+// --- Función única para actualizar el icono del modo oscuro ---
 function updateIcon(isDarkMode) {
     // Si estoy en oscuro, el icono debe ser el de "sol" para cambiar a claro
     // Si estoy en claro, el icono debe ser el de "luna" para cambiar a oscuro
     iconSpan.textContent = isDarkMode ? 'light_mode' : 'dark_mode';
 }
 
+// --- Utilidad genérica: inicializar un carrusel ---
+function initCarousel(trackSelector, prevId, nextId) {
+    const track = document.querySelector(trackSelector);
+    if (!track) return;
+    const slides = Array.from(track.children);
+    const nextButton = document.getElementById(nextId);
+    const prevButton = document.getElementById(prevId);
+    if (!nextButton || !prevButton) return;
+
+    let currentIndex = 0;
+
+    const moveCarousel = (index) => {
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        track.style.transform = `translateX(-${index * slideWidth}px)`;
+    };
+
+    // Siguiente / Bucle: vuelve a la primera diapositiva
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+        moveCarousel(currentIndex);
+    });
+
+    // Anterior / Bucle: va a la última diapositiva
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+        moveCarousel(currentIndex);
+    });
+
+    // Recalcula el ancho al redimensionar la ventana
+    window.addEventListener('resize', () => moveCarousel(currentIndex));
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-    // --- Cálculo dinámico de edad ---
-    const birthDate = new Date(2004, 3, 20); // 20 de abril de 2004 (mes 0-indexed)
+    // --- Cálculo dinámico de edad (birthDate: 20/04/2004) ---
+    const birthDate = new Date(2004, 3, 20);
     const today = new Date();
     let age = today.getFullYear() - birthDate.getFullYear();
     const monthDiff = today.getMonth() - birthDate.getMonth();
@@ -45,42 +70,11 @@ document.addEventListener("DOMContentLoaded", () => {
         ageElement.textContent = age;
     }
 
-    // --- Lógica del Carrusel existente ---
-    const track = document.querySelector('.carousel-track');
-    const slides = Array.from(track.children);
-    const nextButton = document.getElementById('next-btn');
-    const prevButton = document.getElementById('prev-btn');
+    // --- Carruseles: certificaciones y fotos (lógica compartida) ---
+    initCarousel('.carousel-track', 'prev-btn', 'next-btn');
+    initCarousel('#fotos-track', 'prev-btn-fotos', 'next-btn-fotos');
 
-    let currentIndex = 0;
-
-    const moveCarousel = (index) => {
-        const slideWidth = slides[0].getBoundingClientRect().width;
-        track.style.transform = `translateX(-${index * slideWidth}px)`;
-    };
-
-    nextButton.addEventListener('click', () => {
-        if (currentIndex < slides.length - 1) {
-            currentIndex++;
-        } else {
-            currentIndex = 0; // Bucle: vuelve a la primera certificación
-        }
-        moveCarousel(currentIndex);
-    });
-
-    prevButton.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-        } else {
-            currentIndex = slides.length - 1; // Bucle: va a la última certificación
-        }
-        moveCarousel(currentIndex);
-    });
-
-    window.addEventListener('resize', () => {
-        moveCarousel(currentIndex);
-    });
-
-    // ---Lógica para ampliar la imagen (Modal) ---
+    // --- Ampliar imagen de certificaciones (modal) ---
     const modal = document.getElementById('cert-modal');
     const modalImg = document.getElementById("modal-image");
     const expandableImgs = document.querySelectorAll('.expandable-cert');
