@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // --- Carruseles: certificaciones y fotos (lógica compartida) ---
-    initCarousel('.carousel-track', 'prev-btn', 'next-btn');
+    initCarousel('#certificaciones-track', 'prev-btn', 'next-btn');
     initCarousel('#fotos-track', 'prev-btn-fotos', 'next-btn-fotos');
 
     // --- Ampliar imagen de certificaciones (modal) ---
