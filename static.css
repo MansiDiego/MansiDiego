@@ -430,32 +430,28 @@ nav {
 /* --- Fotos section --- */
 .fotos-section {
     padding: 3.5rem 0;
-    /* Fondo de siluetas de montañas sobre el "cielo del Observatorio" */
+    /* Fondo de retícula cyberpunk estilo "Noche de Observatorio" */
     background-image:
-        /* Montañas lejanas */
-        radial-gradient(circle at 25% 110%, rgba(93, 139, 255, 0.11) 0%, transparent 72%),
-        radial-gradient(circle at 45% 105%, rgba(21, 150, 160, 0.08) 0%, transparent 72%),
-        /* Montana media */
-        radial-gradient(circle at 70% 108%, rgba(93, 139, 255, 0.14) 0%, transparent 72%),
-        /* Montana delantera */
-        radial-gradient(circle at 90% 112%, rgba(21, 150, 160, 0.1) 0%, transparent 72%);
-    background-repeat: no-repeat;
-    background-position: bottom left, bottom left, bottom left, bottom left;
-    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+        radial-gradient(circle at 12% 18%, rgba(93, 139, 255, 0.04) 1px, transparent 2px),
+        radial-gradient(circle at 35% 60%, rgba(93, 139, 255, 0.04) 1px, transparent 2px),
+        radial-gradient(circle at 68% 25%, rgba(93, 139, 255, 0.04) 1px, transparent 2px),
+        radial-gradient(circle at 82% 72%, rgba(93, 139, 255, 0.04) 1px, transparent 2px),
+        radial-gradient(circle at 50% 50%, rgba(93, 139, 255, 0.025) 1px, transparent 2px);
+    background-size: 28px 28px;
     position: relative;
 }
 
-/* Silueta de montaña fija en el horizonte del fondo */
+/* Nubes holográficas sutiles para profundidad */
 .fotos-section::before {
     content: "";
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(circle at 20% 95%, rgba(34, 24, 73, 0.36) 0%, transparent 70%),
-        radial-gradient(circle at 68% 94%, rgba(34, 24, 73, 0.32) 0%, transparent 70%);
+        radial-gradient(circle at 25% 30%, rgba(93, 139, 255, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 75% 65%, rgba(21, 150, 160, 0.05) 0%, transparent 45%);
     border-radius: var(--radius-card);
     pointer-events: none;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 /* Subtítulo con descripción de hobbies */
