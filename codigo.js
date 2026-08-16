@@ -70,9 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
         ageElement.textContent = age;
     }
 
-    // --- Carruseles: certificaciones y fotos (lógica compartida) ---
+    // --- Carrusel de certificaciones (las fotos ya no son carrusel) ---
     initCarousel('#certificaciones-track', 'prev-btn', 'next-btn');
-    initCarousel('#fotos-track', 'prev-btn-fotos', 'next-btn-fotos');
 
     // --- Ampliar imagen de certificaciones (modal) ---
     const modal = document.getElementById('cert-modal');
@@ -99,4 +98,15 @@ document.addEventListener("DOMContentLoaded", () => {
             modal.style.display = "none";
         }
     }
+
+    // --- Abrir modal con click derecho en las fotos de "Sobre mi" ---
+    // Reutilizamos #cert-modal para mantener el mismo tamaño de visualización
+    const fotosGrid = document.querySelectorAll('.fotito');
+    fotosGrid.forEach(img => {
+        img.addEventListener('contextmenu', function(e) {
+            e.preventDefault(); // evita el menú nativo para abrir directamente el modal
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+        });
+    });
 });

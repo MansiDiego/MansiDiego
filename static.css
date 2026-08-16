@@ -430,28 +430,41 @@ nav {
 /* --- Fotos section --- */
 .fotos-section { padding: 3.5rem 0; }
 
-.photo-placeholder {
-    background: var(--card-bg);
-    border: 2px dashed var(--border-color);
-    border-radius: var(--radius-card);
-    padding: 3rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+/* Subtítulo con descripción de hobbies */
+.hobbies-text {
+    display: block;
+    margin-top: 0.75rem;
     color: var(--text-muted);
-    transition: all 0.3s ease;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
-.photo-placeholder i {
-    font-size: 3rem;
-    color: var(--accent-primary);
-    opacity: 0.5;
+/* Grilla de imágenes sueltas (antes era carrusel) */
+.fotos-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin-top: 2rem;
 }
 
-.photo-placeholder:hover {
+/* Imagen suelta con efecto 3D al pasar el mouse */
+.fotito {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    cursor: zoom-in;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 26px rgba(93, 139, 255, 0.25);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+/* Efecto 3D: la imagen se sobresalta con leve rotación */
+.fotito:hover {
+    transform: scale(1.06) rotateX(6deg) rotateY(3deg);
+    box-shadow: 0 14px 34px rgba(93, 139, 255, 0.45);
     border-color: var(--accent-primary);
-    background: rgba(93, 139, 255, 0.06);
 }
 
 /* --- Carrusel de Certificaciones y Fotos --- */
