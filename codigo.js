@@ -99,12 +99,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // --- Abrir modal con click derecho en las fotos de "Sobre mi" ---
+    // --- Abrir modal con click en las fotos de "Sobre mi" ---
     // Reutilizamos #cert-modal para mantener el mismo tamaño de visualización
-    const fotosGrid = document.querySelectorAll('.fotito');
-    fotosGrid.forEach(img => {
-        img.addEventListener('contextmenu', function(e) {
-            e.preventDefault(); // evita el menú nativo para abrir directamente el modal
+    const fotosScatter = document.querySelectorAll('.fotito');
+    fotosScatter.forEach(img => {
+        img.addEventListener('click', function() {
             modal.style.display = "flex";
             modalImg.src = this.src;
         });

@@ -428,7 +428,31 @@ nav {
 }
 
 /* --- Fotos section --- */
-.fotos-section { padding: 3.5rem 0; }
+.fotos-section {
+    padding: 3.5rem 0;
+    /* Fondo de retícula cyberpunk estilo "Noche de Observatorio" */
+    background-image:
+        radial-gradient(circle at 12% 18%, rgba(93, 139, 255, 0.04) 1px, transparent 2px),
+        radial-gradient(circle at 35% 60%, rgba(93, 139, 255, 0.04) 1px, transparent 2px),
+        radial-gradient(circle at 68% 25%, rgba(93, 139, 255, 0.04) 1px, transparent 2px),
+        radial-gradient(circle at 82% 72%, rgba(93, 139, 255, 0.04) 1px, transparent 2px),
+        radial-gradient(circle at 50% 50%, rgba(93, 139, 255, 0.025) 1px, transparent 2px);
+    background-size: 28px 28px;
+    position: relative;
+}
+
+/* Nubes holográficas sutiles para profundidad */
+.fotos-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 25% 30%, rgba(93, 139, 255, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 75% 65%, rgba(21, 150, 160, 0.05) 0%, transparent 45%);
+    border-radius: var(--radius-card);
+    pointer-events: none;
+    opacity: 0.8;
+}
 
 /* Subtítulo con descripción de hobbies */
 .hobbies-text {
@@ -439,32 +463,60 @@ nav {
     line-height: 1.6;
 }
 
-/* Grilla de imágenes sueltas (antes era carrusel) */
-.fotos-grid {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+/* Contenedor de polaroids sueltos (no grilla). Las imagenes aparecen desordenadas */
+.fotos-scatter {
+    position: relative;
+    z-index: 1;
     margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 2.25rem;
+    perspective: 1000px; /* habilita la profundidad 3D de cada polaroid */
 }
 
-/* Imagen suelta con efecto 3D al pasar el mouse */
+/* Marco de polaroid: borde blanco + sombra de papel */
+.foto-frame {
+    background: #fff;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    padding: 0.5rem;
+    box-shadow: 0 10px 28px rgba(10, 16, 37, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.2);
+    transform-origin: center;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Rotaciones y escalas "desordenadas" para un toque natural */
+.fotos-scatter .foto-frame:nth-child(1) { transform: rotate(-3.5deg) scale(0.95); }
+.fotos-scatter .foto-frame:nth-child(2) { transform: rotate(1.5deg) scale(1); }
+.fotos-scatter .foto-frame:nth-child(3) { transform: rotate(-2deg) scale(0.97); }
+.fotos-scatter .foto-frame:nth-child(4) { transform: rotate(2.5deg) scale(1.02); }
+
+body.light-mode .foto-frame { background: #fff; }
+
+/* Imagen dentro del marco */
 .fotito {
+    display: block;
     width: 100%;
-    height: 240px;
+    height: 220px;
     object-fit: cover;
     border-radius: var(--radius-sm);
     cursor: zoom-in;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 8px 26px rgba(93, 139, 255, 0.25);
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.3s ease;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
     transform-style: preserve-3d;
 }
 
-/* Efecto 3D: la imagen se sobresalta con leve rotación */
+/* Hover 3D: el polaroid se levanta y hace un leve giro */
+.foto-frame:hover {
+    z-index: 10;
+    transform: rotate(0deg) scale(1.03);
+    box-shadow: 0 20px 40px rgba(93, 139, 255, 0.45), 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
 .fotito:hover {
-    transform: scale(1.06) rotateX(6deg) rotateY(3deg);
-    box-shadow: 0 14px 34px rgba(93, 139, 255, 0.45);
-    border-color: var(--accent-primary);
+    transform: scale(1.02) rotateX(4deg);
+    box-shadow: 0 0 22px 6px rgba(93, 139, 255, 0.45);
 }
 
 /* --- Carrusel de Certificaciones y Fotos --- */
